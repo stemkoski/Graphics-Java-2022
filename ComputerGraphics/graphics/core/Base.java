@@ -20,7 +20,6 @@ public abstract class Base
     private long window;
     // is the main loop currently active?
     private boolean running;
-    
 
     // constructor
     public Base()
@@ -84,6 +83,7 @@ public abstract class Base
 
         // startup ----------------------
         startup();
+        
         // application-specific startup code
         initialize();
 
