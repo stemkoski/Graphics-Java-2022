@@ -29,12 +29,46 @@ public class TestOpenGLUtils extends Base
         */
         
         programRef = OpenGLUtils.initializeProgram(
-             "shaders/center.vert", "shaders/yellow.frag");
+             "shaders/position.vert", "shaders/yellow.frag");
         
         System.out.println("Program reference: " + programRef);
         
+        // creates an array to store all vertex data
         arrayRef = glGenVertexArrays();
+        
+        // make this array object active (use it in future OpenGL commands)
         glBindVertexArray(arrayRef);
+        
+        // create an array of points
+        
+        float[] positionData = {
+             0.8f,  0.0f,  0.0f,
+             0.2f,  0.7f,  0.0f,
+            -0.2f,  0.7f,  0.0f,
+            -0.8f,  0.0f,  0.0f,
+            -0.2f, -0.7f,  0.0f,
+             0.2f, -0.7f,  0.0f  };
+        
+        // create a buffer to store data
+        int bufferRef = glGenBuffers();
+        
+        // activate buffer; storing Array data
+        glBindBuffer( GL_ARRAY_BUFFER, bufferRef );
+        
+        // transmit data into buffer
+        glBufferData( GL_ARRAY_BUFFER, positionData, GL_STATIC_DRAW );
+        
+        // locate reference for shader variable where data should be sent
+        int variableRef = glGetAttribLocation(programRef, "pos");
+        
+        System.out.println("Variable ref: " + variableRef );
+        
+        // set up buffer to variable association
+        glVertexAttribPointer( variableRef, 3, GL_FLOAT, false, 0, 0 );
+        
+        // activate/enable data flow
+        glEnableVertexAttribArray( variableRef );
+        
     }
     
     public void update()
@@ -42,12 +76,15 @@ public class TestOpenGLUtils extends Base
         // declare GPU program to use
         glUseProgram(programRef);
         
+        // increased the size of points to 20 pixels
         glPointSize(20);
+        // increase the width of lines
+        glLineWidth(6);
         
         // draw all the points
         // parameters: 
         //    draw style (points/lines/triangles), starting array index, # vertices
-        glDrawArrays(GL_POINTS, 0, 1);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 6);
     }
     
     public static void main(String[] args)

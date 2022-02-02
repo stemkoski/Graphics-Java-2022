@@ -49,6 +49,9 @@ public class OpenGLUtils
        // create a shader object on GPU
        int shaderRef = glCreateShader(shaderType);
        
+       // force particular version of OpenGL to be used when compiling
+       shaderCode = "#version 330 \n " + shaderCode;
+       
        // send source code to shader
        glShaderSource(shaderRef, shaderCode);
        
