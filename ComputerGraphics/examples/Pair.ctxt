@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Pair
+comment1.params=initX\ initY
+comment1.target=Pair(java.lang.Object,\ java.lang.Object)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3
