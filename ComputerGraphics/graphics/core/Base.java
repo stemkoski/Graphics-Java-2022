@@ -21,6 +21,8 @@ public abstract class Base
     // is the main loop currently active?
     private boolean running;
 
+    public Clock clock;
+    
     // constructor
     public Base()
     {
@@ -31,6 +33,8 @@ public abstract class Base
     {
         System.out.println("Starting program...");
 
+        clock = new Clock();
+        
         // print error messages in System.err
         GLFWErrorCallback.createPrint(System.err).set();
 
@@ -94,6 +98,9 @@ public abstract class Base
             // poll for window events; activates callbacks in Input class methods
             glfwPollEvents();
 
+            // update time-related variables
+            clock.update();
+            
             // press Escape key or click on close icon to quit application,
             if ( glfwWindowShouldClose(window) )
                 running = false;
