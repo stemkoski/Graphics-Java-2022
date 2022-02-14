@@ -22,6 +22,7 @@ public abstract class Base
     private boolean running;
 
     public Clock clock;
+    public Input input;
     
     // constructor
     public Base()
@@ -54,6 +55,7 @@ public abstract class Base
         if ( window == 0 )
             throw new RuntimeException("Failed to create the GLFW window");
 
+        input = new Input(window);
         running = true;
         
         // make the OpenGL context current: all function calls will apply to this context instance
@@ -97,7 +99,8 @@ public abstract class Base
             // process input ----------------------
             // poll for window events; activates callbacks in Input class methods
             glfwPollEvents();
-
+            input.update();
+            
             // update time-related variables
             clock.update();
             
