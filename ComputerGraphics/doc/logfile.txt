@@ -1,0 +1,36 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\BlueJ\jdk\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-Xdoclint:none
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+11
+-classpath
+C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\junit-4.11.jar;C:\Program Files\BlueJ\lib\junit-jupiter-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-api-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-migrationsupport-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-jupiter-params-5.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-commons-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-console-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-console-standalone-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-engine-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-launcher-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-reporting-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-runner-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-suite-api-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-platform-testkit-1.5.2.jar;C:\Program Files\BlueJ\lib\junit-quickcheck-core-0.9.jar;C:\Program Files\BlueJ\lib\junit-vintage-engine-5.5.2.jar;C:\Program Files\BlueJ\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ\lib\hamcrest-library-1.3.jar;C:\Program Files\BlueJ\lib\lang-stride.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.base.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.controls.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.fxml.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.graphics.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.media.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.properties.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.swing.jar;C:\Program Files\BlueJ\lib\javafx\lib\javafx.web.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-glfw-javadoc.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-glfw-natives-macos.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-glfw-natives-windows.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-glfw-sources.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-glfw.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-javadoc.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-natives-macos.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-natives-windows.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-opengl-javadoc.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-opengl-natives-macos.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-opengl-natives-windows.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-opengl-sources.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-opengl.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-sources.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-stb-javadoc.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-stb-natives-macos.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-stb-natives-windows.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-stb-sources.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl-stb.jar;C:\Users\mmuser\Desktop\ComputerGraphics\+libs\lwjgl.jar;C:\Users\mmuser\Desktop\ComputerGraphics
+-d
+C:\Users\mmuser\Desktop\ComputerGraphics\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+C:\Users\mmuser\Desktop\ComputerGraphics\TestVector.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\mmuser\Desktop\ComputerGraphics\TestVector.java...
+Constructing Javadoc information...
+Standard Doclet version 11.0.10
+Building tree for all the packages and classes...
+Generating C:\Users\mmuser\Desktop\ComputerGraphics\doc\TestVector.html...
+Generating C:\Users\mmuser\Desktop\ComputerGraphics\doc\package-summary.html...
+Generating C:\Users\mmuser\Desktop\ComputerGraphics\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Users\mmuser\Desktop\ComputerGraphics\doc\allclasses.html...
+Generating C:\Users\mmuser\Desktop\ComputerGraphics\doc\allclasses.html...
+Generating C:\Users\mmuser\Desktop\ComputerGraphics\doc\index.html...
