@@ -1,35 +1,84 @@
 package graphics.math;
 
-
 /**
- * Write a description of class Matrix here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * The Matrix class stores a grid of numbers, and defines operations on matrices.
  */
 public class Matrix
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    public double[][] values;
+    public int rows;
+    public int columns;
 
-    /**
-     * Constructor for objects of class Matrix
-     */
-    public Matrix()
+    public Matrix(int rows, int columns)
     {
-        // initialise instance variables
-        x = 0;
+        values = new double[rows][columns];
+        this.rows = rows;
+        this.columns = columns;
+    }
+
+    // requires rows x columns inputs (all doubles)
+    // setValues(...v) is varargs : variable number of arguments.
+    // can use with any number of arguments: setValues(1,2,3,4,5,6)
+    // all the arguments are then packed into an array
+    //   for use in the function.
+    public void setValues(double ...newValues)
+    {
+        for (int i = 0; i < newValues.length; i++)
+        {
+            double v = newValues[i];
+            int rowNum = i / columns;
+            int columnNum = i % columns;
+            values[rowNum][columnNum] = v;
+        }
+    }
+
+    public Vector getRow(int rowNum)
+    {
+        // each row has one entry from each column of the matrix
+        Vector v = new Vector(columns);
+        for (int i = 0; i < columns; i++)
+        {
+            v.values[i] = this.values[rowNum][i];
+        }
+        return v;
+    }
+
+    public Vector getColumn(int columnNum)
+    {   
+        // each column has one entry from each row of the matrix
+        Vector v = new Vector(rows);
+        for (int i = 0; i < rows; i++)
+        {
+            v.values[i] = this.values[i][columnNum];
+        }
+        return v;
+    }
+
+    public String toString()
+    {
+        String s = "";
+        for (int i = 0; i < rows; i++)
+            s += getRow(i).toString() + "\n";
+        return s;   
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     *  Multiply this matrix by a vector.
      */
-    public int sampleMethod(int y)
+    public Vector multiplyVector(Vector v)
     {
-        // put your code here
-        return x + y;
+        Vector w = new Vector(rows);
+
+        for (int i = 0; i < rows; i++)
+            w.values[i] = Vector.dot( getRow(i), v );
+
+        return w;
     }
+
+    /*
+    public boolean equals(Matrix other)
+    {
+        
+    }
+    */
 }

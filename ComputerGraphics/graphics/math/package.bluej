@@ -1,4 +1,7 @@
 #BlueJ package file
+dependency1.from=Matrix
+dependency1.to=Vector
+dependency1.type=UsesDependency
 objectbench.height=93
 objectbench.width=760
 package.divider.horizontal=0.6
@@ -9,7 +12,7 @@ package.editor.x=126
 package.editor.y=78
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=2
 package.showExtends=true
 package.showUses=true
@@ -23,8 +26,8 @@ target1.name=Matrix
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=120
-target1.x=310
-target1.y=200
+target1.x=450
+target1.y=170
 target2.height=70
 target2.name=Vector
 target2.showInterface=false
