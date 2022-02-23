@@ -23,5 +23,24 @@ public class TestMatrix
         
         System.out.println( w.equals( new Vector(17, 39)) );
         
+        Matrix A = new Matrix(2,2);
+        A.setValues( 1, 2,
+                     3, 4 );
+        
+        Matrix B = new Matrix(2,2);
+        B.setValues( 5, 6,
+                     2, 1 );
+                     
+        Matrix C = new Matrix(2,2);
+        C.setValues(  9,  8,
+                     23, 22 );
+        System.out.println(C);
+                     
+        Matrix AB = Matrix.multiplyMatrices(A, B);
+        System.out.println(AB);
+        
+        System.out.println( Matrix.multiplyMatrices(A, B).equals( C ) );
+                     
+                     
     }
 }

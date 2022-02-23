@@ -75,10 +75,67 @@ public class Matrix
         return w;
     }
 
-    /*
-    public boolean equals(Matrix other)
+    /**
+     * Multiply this matrix times another matrix.
+     * Calculates (this * other).
+     * @param other the other matrix to multiply by.
+     */
+    public Matrix multiplyMatrix(Matrix other)
     {
+        // create a new matrix to store values from calculation
+        Matrix M = new Matrix(this.rows, other.columns);
         
+        for (int rowNum = 0; rowNum < this.rows; rowNum++)
+        {
+            Vector row = this.getRow(rowNum);
+            for (int columnNum = 0; columnNum < other.columns; columnNum++)
+            {
+                Vector column = other.getColumn(columnNum);
+                double number = Vector.dot( row, column );
+                M.values[rowNum][columnNum] = number;
+            }
+        }
+        
+        return M;
     }
-    */
+    
+    /**
+     * Multiply two matrices and return a new matrix that is their product.
+     *
+     * @param A first matrix
+     * @param B second matrix
+     * @return the matrix product A * B
+     */
+    public static Matrix multiplyMatrices(Matrix A, Matrix B)
+    {
+        // create a new matrix to store values from calculation
+        Matrix M = new Matrix(A.rows, B.columns);
+        
+        for (int rowNum = 0; rowNum < A.rows; rowNum++)
+        {
+            Vector row = A.getRow(rowNum);
+            for (int columnNum = 0; columnNum < B.columns; columnNum++)
+            {
+                Vector column = B.getColumn(columnNum);
+                double number = Vector.dot( row, column );
+                M.values[rowNum][columnNum] = number;
+            }
+        }
+        
+        return M;
+    }
+    
+    public boolean equals(Matrix other)
+    {    
+        boolean same = true;
+        for (int i = 0; i < this.rows; i++)
+        {
+            for (int j = 0; j < this.columns; j++)
+            {
+                same = same && (this.values[i][j] == other.values[i][j]);
+            }
+        }
+        return same;
+    }
+    
 }
