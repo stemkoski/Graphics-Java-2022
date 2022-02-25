@@ -84,7 +84,7 @@ public class Matrix
     {
         // create a new matrix to store values from calculation
         Matrix M = new Matrix(this.rows, other.columns);
-        
+
         for (int rowNum = 0; rowNum < this.rows; rowNum++)
         {
             Vector row = this.getRow(rowNum);
@@ -95,10 +95,10 @@ public class Matrix
                 M.values[rowNum][columnNum] = number;
             }
         }
-        
+
         return M;
     }
-    
+
     /**
      * Multiply two matrices and return a new matrix that is their product.
      *
@@ -110,7 +110,7 @@ public class Matrix
     {
         // create a new matrix to store values from calculation
         Matrix M = new Matrix(A.rows, B.columns);
-        
+
         for (int rowNum = 0; rowNum < A.rows; rowNum++)
         {
             Vector row = A.getRow(rowNum);
@@ -121,10 +121,10 @@ public class Matrix
                 M.values[rowNum][columnNum] = number;
             }
         }
-        
+
         return M;
     }
-    
+
     public boolean equals(Matrix other)
     {    
         boolean same = true;
@@ -137,5 +137,42 @@ public class Matrix
         }
         return same;
     }
-    
+
+    // convert 2D array of values into a 1D array of (float) values
+    public float[] flatten()
+    {
+        float[] array = new float[rows * columns];
+        int index = 0;
+        for (int columnNum = 0; columnNum < columns; columnNum++)
+        {
+            for (int rowNum = 0; rowNum < rows; rowNum++)
+            {
+                array[ index ] = (float)values[rowNum][columnNum];
+                index++;
+            }
+        }
+        return array;
+    }
+
+    // represents no translation, no rotation.
+    public static Matrix makeIdentity()
+    {
+        Matrix M = new Matrix(4,4);
+        M.setValues( 1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1  );
+        return M;
+    }
+
+    public static Matrix makeTranslation(double dx, double dy, double dz)
+    {
+        Matrix M = new Matrix(4,4);
+        M.setValues( 1, 0, 0, dx,
+            0, 1, 0, dy,
+            0, 0, 1, dz,
+            0, 0, 0,  1  );
+        return M;
+    }
+
 }

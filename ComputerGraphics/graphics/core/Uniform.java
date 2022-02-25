@@ -1,4 +1,5 @@
 package graphics.core;
+import graphics.math.*;
 
 import static org.lwjgl.opengl.GL40.*;
 
@@ -45,6 +46,11 @@ public class Uniform<T>
         {
             Float[] floatArray = (Float[])data;
             glUniform4f(uniformRef, floatArray[0], floatArray[1], floatArray[2], floatArray[3]);
+        }
+        else if (dataType.equals("mat4"))
+        {
+            Matrix M = (Matrix)data; 
+            glUniform4fv( uniformRef, M.flatten() );
         }
     }
 }

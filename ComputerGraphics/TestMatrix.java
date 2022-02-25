@@ -7,6 +7,7 @@ public class TestMatrix
 {
     public static void main(String[] args)
     {
+        /*
         Matrix m = new Matrix(2,4);
         System.out.println( m );
         
@@ -40,7 +41,30 @@ public class TestMatrix
         System.out.println(AB);
         
         System.out.println( Matrix.multiplyMatrices(A, B).equals( C ) );
-                     
-                     
+        */
+        
+        // testing translation matrix
+        
+        Matrix M = Matrix.makeTranslation(2, 3, 5);
+        System.out.println(M);
+        
+        Matrix A = Matrix.makeIdentity();
+        A = Matrix.multiplyMatrices(A, M);
+        A = Matrix.multiplyMatrices(A, M);
+        A = Matrix.multiplyMatrices(A, M);
+        
+        System.out.println( A );
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
     }
 }
