@@ -168,11 +168,40 @@ public class Matrix
     public static Matrix makeTranslation(double dx, double dy, double dz)
     {
         Matrix M = new Matrix(4,4);
-        M.setValues( 1, 0, 0, dx,
+        M.setValues( 
+            1, 0, 0, dx,
             0, 1, 0, dy,
             0, 0, 1, dz,
             0, 0, 0,  1  );
         return M;
     }
+    
+    public static Matrix makeRotationZ(double angle)
+    {
+        double c = Math.cos(angle);
+        double s = Math.sin(angle);
+        Matrix M = new Matrix(4,4);
+        M.setValues( 
+            c, -s, 0, 0,
+            s,  c, 0, 0,
+            0,  0, 1, 0,
+            0,  0, 0, 1  );
+        return M;
+    }
+
+    public static Matrix makeScale(double s)
+    {
+        Matrix M = new Matrix(4,4);
+        M.setValues( 
+            s, 0, 0, 0,
+            0, s, 0, 0,
+            0, 0, s, 0,
+            0, 0, 0, 1  );
+        return M;
+    }
+    
+    
+    
+    
 
 }

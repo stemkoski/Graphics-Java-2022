@@ -1,8 +1,9 @@
 package graphics.core;
 import graphics.math.*;
+import java.util.Arrays;
 
 import static org.lwjgl.opengl.GL40.*;
-
+ 
 /**
  * Store and send uniform (constant) data to the GPU.
  */
@@ -24,6 +25,7 @@ public class Uniform<T>
     public void associateVariable(int programRef, String variableName)
     {
         uniformRef = glGetUniformLocation(programRef, variableName);
+        System.out.println( this.dataType + " has memory ref " + uniformRef );
     }
     
     public void uploadData()
@@ -49,8 +51,10 @@ public class Uniform<T>
         }
         else if (dataType.equals("mat4"))
         {
-            Matrix M = (Matrix)data; 
-            glUniform4fv( uniformRef, M.flatten() );
+            Matrix M = (Matrix)data;
+            // System.out.println("Uploading data...");
+            // System.out.println( Arrays.toString( M.flatten() ) );
+            glUniformMatrix4fv( uniformRef, false, M.flatten() ); 
         }
     }
 }

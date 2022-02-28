@@ -3,7 +3,7 @@ package graphics.core;
 import java.nio.file.*;
 // use method names without referring to class
 import static org.lwjgl.opengl.GL40.*;
-
+  
 /**
  * methods to load, send, compile, link, check shader programs
  *
