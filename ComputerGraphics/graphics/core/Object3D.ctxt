@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Object3D
+comment0.text=\r\n\ Represents\ any\ object\ that\ has\ a\ position\ and\ orientation\ in\ 3D\ space.\r\n\ Extended\ by\ Group,\ Camera,\ Mesh,\ ...\r\n\ Makes\ use\ of\ tree\ data\ structure\ to\ organize\ objects\ in\ a\ 3D\ scene.\r\n
+comment1.params=
+comment1.target=Object3D()
+comment2.params=child
+comment2.target=void\ add(Object3D)
+comment3.params=child
+comment3.target=void\ remove(Object3D)
+comment4.params=
+comment4.target=graphics.math.Matrix\ getWorldMatrix()
+comment4.text=\r\n\ Determine\ where\ this\ object\ is,\ with\ respect\ to\ the\ root\ of\ the\ tree.\r\n\ Accomplished\ by\ multiplying\ all\ matrices\ from\ this\ object,\r\n\ \ \ through\ ancestors\ (parent,\ parent's\ parent,\ ...,\ root).\r\n\r\n\ @return\ matrix\ that\ encodes\ position,\ rotation,\ scale\ data\r\n
+numComments=5
