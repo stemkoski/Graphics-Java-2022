@@ -18,6 +18,9 @@ comment13.text=\r\n\ Calculate\ the\ dot\ product\ of\ two\ vectors\:\r\n\ if\ V
 comment14.params=
 comment14.target=double\ getLength()
 comment14.text=\r\n\ Calculate\ the\ length\ of\ a\ vector.\r\n\ example\:\ if\ V\ \=\ (v1,\ v2),\ then\ length(V)\ \=\ sqrt(\ v1*v1\ +\ v2*v2\ )\ \=\ sqrt(\ dot(\ V,\ V\ )\ )\r\n\ \r\n\ @return\ the\ length\ of\ this\ vector\r\n
+comment15.params=vectorArray
+comment15.target=float[]\ flattenArray(Vector[])
+comment15.text=\r\n\ Take\ any\ number\ of\ vector\ parameters,\ and\ place\ all\ components\ into\ a\ single\ float\ array.\r\n\ example\:\ flattenArray(\ new\ Vector(2,3,5),\ new\ Vector(5,3,7)\ )\r\n\ \ \ \ \ \ \ \ \ \ returns\ [2,\ 3,\ 5,\ \ 5,\ 3,\ 7]\r\n\ This\ is\ the\ format\ required\ by\ OpenGL\ vertex\ buffers.\r\n
 comment2.params=x\ y
 comment2.target=Vector(double,\ double)
 comment3.params=x\ y\ z
@@ -36,4 +39,4 @@ comment8.target=Vector\ addVectors(Vector,\ Vector)
 comment8.text=\r\n\ Create\ a\ new\ vector\ by\ adding\ two\ other\ vectors\ together.\r\n\r\n\ @param\ v\ the\ first\ vector\r\n\ @param\ w\ the\ second\ vector\r\n\ @return\ the\ sum\ of\ the\ vectors\r\n
 comment9.params=other
 comment9.target=void\ subtractVector(Vector)
-numComments=15
+numComments=16

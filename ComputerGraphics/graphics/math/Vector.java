@@ -180,6 +180,33 @@ public class Vector
         return Math.sqrt( Vector.dot( this, this ) );
     }
     
+    /**
+     * Take any number of vector parameters, and place all components into a single float array.
+     * example: flattenArray( new Vector(2,3,5), new Vector(5,3,7) )
+     *          returns [2, 3, 5,  5, 3, 7]
+     * This is the format required by OpenGL vertex buffers.
+     */
+    public static float[] flattenArray(Vector ...vectorArray)
+    {
+        int vectorSize = vectorArray[0].values.length;
+        float[] array = new float[ vectorArray.length * vectorSize ];
+        int arrayIndex = 0;
+        for (int vectorNum = 0; vectorNum < vectorArray.length; vectorNum++)
+        {
+            Vector vec = vectorArray[vectorNum];
+            for (int indexNum = 0; indexNum < vectorSize; indexNum++)
+            {
+                // arrayIndex = vectorNum * vectorSize + indexNum;
+                array[ arrayIndex ] = (float)vec.values[indexNum];
+                arrayIndex++;
+            }
+        }
+        return array;
+    }
+    
+    
+    
+    
     
     
     

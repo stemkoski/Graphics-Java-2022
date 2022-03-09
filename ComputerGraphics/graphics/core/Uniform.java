@@ -9,7 +9,7 @@ import static org.lwjgl.opengl.GL40.*;
  */
 public class Uniform<T>
 {
-    // "int" | "float" | "vec2" | "vec3" | "vec4"
+    // "int" | "float" | "vec2" | "vec3" | "vec4" | "mat4" | "bool"
     public String dataType;
     
     public T data;
@@ -31,6 +31,8 @@ public class Uniform<T>
     public void uploadData()
     {
         if (dataType.equals("int"))
+            glUniform1i(uniformRef, (Integer)data);
+        else if (dataType.equals("bool"))
             glUniform1i(uniformRef, (Integer)data);
         else if (dataType.equals("float"))
             glUniform1f(uniformRef, (Float)data);
