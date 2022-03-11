@@ -43,7 +43,7 @@ public class Uniform<T>
         }
         else if (dataType.equals("vec3"))
         {
-            Float[] floatArray = (Float[])data;
+            float[] floatArray = (float[])data;
             glUniform3f(uniformRef, floatArray[0], floatArray[1], floatArray[2]);
         }
         else if (dataType.equals("vec4"))

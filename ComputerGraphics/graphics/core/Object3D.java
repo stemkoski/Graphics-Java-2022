@@ -2,6 +2,7 @@ package graphics.core;
 
 import graphics.math.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents any object that has a position and orientation in 3D space.
@@ -34,6 +35,33 @@ public class Object3D
     {
         children.remove(child);
         child.parent = null;
+    }
+    
+    /**
+     * Convert Tree structure into a List, for use by Renderer class.
+     */
+    public ArrayList<Object3D> getDescendentList()
+    {
+        ArrayList<Object3D> descendentList = new ArrayList<Object3D>();
+        ArrayList<Object3D> objectsToProcess = new ArrayList<Object3D>();
+        // start by adding this object, root of tree, to process list
+        objectsToProcess.add( this );
+        // while list of objects to process is not empty,
+        while (objectsToProcess.size() > 0)
+        {
+           // add first object in list to descendents list
+           Object3D first = objectsToProcess.get(0);
+           descendentList.add( first );
+           // add children of first object to process list
+           for (Object3D child : first.children)
+           {
+               objectsToProcess.add(child);
+           }
+           // remove first object from process list
+           objectsToProcess.remove(first);
+        }
+        // return descendents list
+        return descendentList;
     }
     
     /**

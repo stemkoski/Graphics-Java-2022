@@ -1,5 +1,7 @@
 package graphics.material;
 
+import static org.lwjgl.opengl.GL40.*;
+
 public class SurfaceMaterial extends Material
 {
     public SurfaceMaterial()
@@ -13,5 +15,8 @@ public class SurfaceMaterial extends Material
         
         // boolean variables in OpenGL are ints: 0 = false, 1 = true.
         addUniform("bool", "useVertexColor", 1);
+        
+        // ALWAYS STATE WHAT DRAW MODE TO USE
+        drawStyle = GL_TRIANGLES;
     }
 }
