@@ -1,6 +1,7 @@
 package graphics.material;
 import java.util.HashMap;
 import graphics.core.*;
+import graphics.math.*;
 
 /**
  * Store appearance-related data:
@@ -22,6 +23,14 @@ public class Material
                         vertexShaderFileName, fragmentShaderFileName );
                         
         uniforms = new HashMap<String, Uniform>();
+        
+        // add the three matrices every 3D object needs:
+        //  model, view, and projection matrices
+        addUniform( "mat4", "modelMatrix",      Matrix.makeIdentity() );
+        addUniform( "mat4", "viewMatrix",       Matrix.makeIdentity() );
+        addUniform( "mat4", "projectionMatrix", Matrix.makeIdentity() );
+        
+        
     }
     
     public void addUniform(String dataType, String variableName, Object data)

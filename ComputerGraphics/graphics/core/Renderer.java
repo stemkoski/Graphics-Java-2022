@@ -17,9 +17,13 @@ public class Renderer
     }
     
     // where all the drawing happens
-    public void render(Object3D sceneRoot)
+    // requires both group of objects, and the camera which gives the viewpoint.
+    public void render(Object3D sceneRoot, Camera camera)
     {
         ArrayList<Object3D> descendentList = sceneRoot.getDescendentList();
+        
+        // calculates the inverse once per render, for efficiency.
+        camera.updateViewMatrix();
         
         // draw all Mesh objects 
         for (Object3D obj : descendentList)
@@ -36,6 +40,16 @@ public class Renderer
             glUseProgram( mesh.material.programRef );
             // use correct buffer -> variable associations (stored in VAO)
             glBindVertexArray( mesh.vaoRef );
+            
+            // upload Matrix uniforms, which are not stored in material
+            System.out.println("checking matrices");
+            System.out.println(mesh.transform);
+            System.out.println(mesh.getWorldMatrix());
+
+            mesh.material.uniforms.get("modelMatrix").data      = mesh.getWorldMatrix();
+            mesh.material.uniforms.get("viewMatrix").data       = camera.viewMatrix;
+            mesh.material.uniforms.get("projectionMatrix").data = camera.projectionMatrix;
+            
             // upload all data stored in all related Uniforms
             for (String variableName : mesh.material.uniforms.keySet())
             {
