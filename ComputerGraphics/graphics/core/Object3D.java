@@ -15,28 +15,28 @@ public class Object3D
     // support tree data structure
     public Object3D parent;
     public ArrayList<Object3D> children;
-    
+
     public Object3D()
     {
         transform = Matrix.makeIdentity();
         parent = null;
         children = new ArrayList<Object3D>();
     }
-    
+
     // tree operations
-    
+
     public void add(Object3D child)
     {
         children.add(child);
         child.parent = this;
     }
-    
+
     public void remove(Object3D child)
     {
         children.remove(child);
         child.parent = null;
     }
-    
+
     /**
      * Convert Tree structure into a List, for use by Renderer class.
      */
@@ -49,21 +49,21 @@ public class Object3D
         // while list of objects to process is not empty,
         while (objectsToProcess.size() > 0)
         {
-           // add first object in list to descendents list
-           Object3D first = objectsToProcess.get(0);
-           descendentList.add( first );
-           // add children of first object to process list
-           for (Object3D child : first.children)
-           {
-               objectsToProcess.add(child);
-           }
-           // remove first object from process list
-           objectsToProcess.remove(first);
+            // add first object in list to descendents list
+            Object3D first = objectsToProcess.get(0);
+            descendentList.add( first );
+            // add children of first object to process list
+            for (Object3D child : first.children)
+            {
+                objectsToProcess.add(child);
+            }
+            // remove first object from process list
+            objectsToProcess.remove(first);
         }
         // return descendents list
         return descendentList;
     }
-    
+
     /**
      * Determine where this object is, with respect to the root of the tree.
      * Accomplished by multiplying all matrices from this object,
@@ -79,31 +79,39 @@ public class Object3D
         else
             return Matrix.multiplyMatrices( parent.getWorldMatrix(), transform );
     }
-    
-    /*
+
+    // get/set position components of transform
     public Vector getPosition()
     {
-        return transform.getPosition();
+        return new Vector(
+            transform.values[0][3],
+            transform.values[1][3],
+            transform.values[2][3] );
+    }
+
+    public void setPosition(Vector position)
+    {
+        transform.values[0][3] = position.values[0];
+        transform.values[1][3] = position.values[1];
+        transform.values[2][3] = position.values[2];
     }
     
-    Also TODO:
-    setPosition(x,y,z)
+    /*
+    
+    TODO: (local/global versions)
+    
     translate(x,y,z)
-    
+
     "roll"
-    getRotationZ()
-    setRotationZ(angle)
     rotateZ(angle)
-    
+
     "look"
-    getRotationX()
-    setRotationX(angle)
     rotateX(angle)
 
     "turn"
-    getRotationY()
-    setRotationY(angle)
     rotateY(angle)
-    
-    */
+
+    "scale"
+    scale(s)
+     */
 }
