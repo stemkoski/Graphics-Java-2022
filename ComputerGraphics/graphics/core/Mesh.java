@@ -38,5 +38,18 @@ public class Mesh extends Object3D
            attr.associateVariable(material.programRef, variableName);
        }
        
+       for (String variableName : material.uniforms.keySet())
+       {
+           // retrieve from HashMap
+           Uniform unif = material.uniforms.get(variableName);
+           
+           // set up association; automatically stores
+           unif.associateVariable(material.programRef, variableName);
+       }
+       
+       
+       
+       
+       
    }
 }

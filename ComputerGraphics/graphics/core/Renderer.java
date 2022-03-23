@@ -14,12 +14,21 @@ public class Renderer
         // specify color used to clear screen
         glClearColor(0, 0, 0, 1);
         
+        // enable depth testing for 3D objects;
+        //  otherwise, objects drawn in order added to scene
+        glEnable( GL_DEPTH_TEST );
     }
     
     // where all the drawing happens
     // requires both group of objects, and the camera which gives the viewpoint.
     public void render(Object3D sceneRoot, Camera camera)
     {
+        // clear the graphics window
+        glClear( GL_COLOR_BUFFER_BIT );
+        // refresh depth information 
+        glClear( GL_DEPTH_BUFFER_BIT );
+        
+        
         ArrayList<Object3D> descendentList = sceneRoot.getDescendentList();
         
         // calculates the inverse once per render, for efficiency.
@@ -42,10 +51,6 @@ public class Renderer
             glBindVertexArray( mesh.vaoRef );
             
             // upload Matrix uniforms, which are not stored in material
-            System.out.println("checking matrices");
-            System.out.println(mesh.transform);
-            System.out.println(mesh.getWorldMatrix());
-
             mesh.material.uniforms.get("modelMatrix").data      = mesh.getWorldMatrix();
             mesh.material.uniforms.get("viewMatrix").data       = camera.viewMatrix;
             mesh.material.uniforms.get("projectionMatrix").data = camera.projectionMatrix;
