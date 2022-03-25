@@ -96,6 +96,41 @@ public class Object3D
         transform.values[2][3] = position.values[2];
     }
     
+    public void translateLocal(double deltaX, double deltaY, double deltaZ)
+    {
+        Matrix T = Matrix.makeTranslation(deltaX, deltaY, deltaZ);
+        transform = Matrix.multiplyMatrices(transform, T);
+    }
+
+    public void translateGlobal(double deltaX, double deltaY, double deltaZ)
+    {
+        Matrix T = Matrix.makeTranslation(deltaX, deltaY, deltaZ);
+        transform = Matrix.multiplyMatrices(T, transform);
+    }
+
+    public void rotateXLocal(double deltaA)
+    {
+        Matrix T = Matrix.makeRotationX(deltaA);
+        transform = Matrix.multiplyMatrices(transform, T);
+    }
+
+    public void rotateXGlobal(double deltaA)
+    {
+        Matrix T = Matrix.makeRotationX(deltaA);
+        transform = Matrix.multiplyMatrices(T, transform);
+    }
+
+    public void rotateYLocal(double deltaA)
+    {
+        Matrix T = Matrix.makeRotationY(deltaA);
+        transform = Matrix.multiplyMatrices(transform, T);
+    }
+
+    public void rotateYGlobal(double deltaA)
+    {
+        Matrix T = Matrix.makeRotationY(deltaA);
+        transform = Matrix.multiplyMatrices(T, transform);
+    }
     /*
     
     TODO: (local/global versions)
