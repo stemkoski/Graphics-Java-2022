@@ -131,6 +131,12 @@ public class Object3D
         Matrix T = Matrix.makeRotationY(deltaA);
         transform = Matrix.multiplyMatrices(T, transform);
     }
+    
+    public void scale(double s)
+    {
+        Matrix T = Matrix.makeScale(s);
+        transform = Matrix.multiplyMatrices(T, transform);        
+    }
     /*
     
     TODO: (local/global versions)

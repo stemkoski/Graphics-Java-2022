@@ -25,7 +25,6 @@ public class Uniform<T>
     public void associateVariable(int programRef, String variableName)
     {
         uniformRef = glGetUniformLocation(programRef, variableName);
-        System.out.println( this.dataType + " has memory ref " + uniformRef );
     }
     
     public void uploadData()
