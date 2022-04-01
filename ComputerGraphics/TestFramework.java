@@ -49,20 +49,23 @@ public class TestFramework extends Base
         */
         
         // Geometry polyGeo = new PolygonGeometry(8);
-        Geometry plane = new PlaneGeometry();
-        Material polyMat = new SurfaceMaterial();
+        // Geometry plane = new PlaneGeometry();
+        // Material polyMat = new SurfaceMaterial();
         
         // turn off vertex colors:
         // polyMat.uniforms.get("useVertexColor").data = 0;
         // polyMat.uniforms.get("color").data = new float[] {1, 1, 0};
         
-        Mesh poly = new Mesh(plane, polyMat);
+        Geometry sphereGeo = new TorusGeometry();
+        Material sphereMat = new SurfaceMaterial();
+        
+        Mesh mesh = new Mesh(sphereGeo, sphereMat);
         
         // change size
         // poly.scale(2);
         
-        poly.setPosition( new Vector(0, 1.5, 0) );
-        sceneRoot.add( poly );
+        mesh.setPosition( new Vector(0, 1.5, 0) );
+        sceneRoot.add( mesh );
        
         renderer = new Renderer();
         
