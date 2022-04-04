@@ -56,13 +56,36 @@ public class TestFramework extends Base
         // polyMat.uniforms.get("useVertexColor").data = 0;
         // polyMat.uniforms.get("color").data = new float[] {1, 1, 0};
         
+        /*
         Geometry sphereGeo = new TorusGeometry();
         Material sphereMat = new SurfaceMaterial();
-        
         Mesh mesh = new Mesh(sphereGeo, sphereMat);
+        */
         
-        // change size
-        // poly.scale(2);
+       /*
+        // add top and bottom to this shape.
+        Geometry prismGeo = new PrismGeometry(6);
+        Mesh mesh = new Mesh(prismGeo, mat);
+        // add top and bottom to the prism
+        Geometry hexagonGeo = new HexagonGeometry();
+        Mesh top = new Mesh(hexagonGeo, mat);
+        top.rotateXLocal(Math.PI / 2);
+        top.translateGlobal(0,1,0);
+        mesh.add(top);
+        */
+        
+       /*
+       Geometry cylinderGeo = new CylinderGeometry();
+       Mesh mesh = new Mesh(cylinderGeo, mat);
+        */
+       
+       /*
+       Geometry pyramidGeo = new PyramidGeometry(4);
+       Mesh mesh = new Mesh(pyramidGeo, mat);
+       */
+      
+        Geometry coneGeo = new ConeGeometry();
+        Mesh mesh = new Mesh(coneGeo, mat);
         
         mesh.setPosition( new Vector(0, 1.5, 0) );
         sceneRoot.add( mesh );
