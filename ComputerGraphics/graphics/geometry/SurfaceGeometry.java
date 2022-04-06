@@ -17,12 +17,25 @@ public class SurfaceGeometry extends Geometry
         
         Vector[] trianglePoints = new Vector[vertexCount];
         Vector[] triangleColors = new Vector[vertexCount];
+        
+        /*
+        // colorful triangles!
         Vector C0 = new Vector(0.5, 0.75, 1); 
         Vector C1 = new Vector(0.5, 1, 0.5);
         Vector C2 = new Vector(0.75, 0.5, 1);
         Vector C3 = new Vector(0.85, 0.10, 0.25); // crimson!
         Vector C4 = new Vector(1, 0.5, 0);
         Vector C5 = new Vector(1, 1, 0);
+        */
+       
+        // gray scale triangles
+        Vector C0 = new Vector( 0.5, 0.5, 0.5 );
+        Vector C1 = new Vector( 0.6, 0.6, 0.6 );
+        Vector C2 = new Vector( 0.7, 0.7, 0.7 );
+        Vector C3 = new Vector( 0.8, 0.8, 0.8 );
+        Vector C4 = new Vector( 0.9, 0.9, 0.9 );
+        Vector C5 = new Vector( 1.0, 1.0, 1.0 );
+        
         int triangleIndex = 0;
         
         for (int uIndex = 0; uIndex < uNumPoints - 1; uIndex++)

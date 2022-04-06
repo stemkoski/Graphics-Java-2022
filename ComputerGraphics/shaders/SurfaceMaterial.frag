@@ -14,8 +14,12 @@ out vec4 fragColor;
 
 void main()
 {
+   // default is to use "color" variable (defaults to white)
+   fragColor = vec4(color, 1);
+
+   // if true, tint the base color with vertex colors.
+   // when base color is white, this does not affect vertex colors.
    if (useVertexColor)
-      fragColor = vec4(fragmentColor, 1);
-   else
-      fragColor = vec4(color, 1);
+      fragColor *= vec4(fragmentColor, 1);
+   
 }
