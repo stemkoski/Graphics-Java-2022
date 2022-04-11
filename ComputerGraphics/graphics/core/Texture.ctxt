@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Texture
+comment0.text=\r\n\ \ Load\ and\ transmit\ image\ data\ to\ the\ GPU.\r\n
+comment1.params=fileName
+comment1.target=Texture(java.lang.String)
+comment1.text=\r\n\ Load\ an\ image\ file\ and\ transmit\ data\ to\ GPU.\r\n\ Using\ the\ "stb"\ library.\r\n\ Store\ data\ in\ an\ array\ of\ bytes.\r\n\r\n\ @param\ fileName\ A\ parameter\r\n
+comment2.params=
+comment2.target=void\ uploadData()
+numComments=3

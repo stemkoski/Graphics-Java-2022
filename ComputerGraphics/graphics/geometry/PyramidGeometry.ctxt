@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=PyramidGeometry
+comment0.text=\r\n\ \ \ \ Makes\ a\ pyramid\r\n
+comment1.params=numberOfSides
+comment1.target=PyramidGeometry(int)
+numComments=2
