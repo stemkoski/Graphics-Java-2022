@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=TextureMaterial
+comment1.params=texture
+comment1.target=TextureMaterial(graphics.core.Texture)
+numComments=2

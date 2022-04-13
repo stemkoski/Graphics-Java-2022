@@ -21,6 +21,7 @@ public class Texture
     public int temp;
     
     public ByteBuffer pixelData; // R,G,B,A values separated
+    
     /**
      * Load an image file and transmit data to GPU.
      * Using the "stb" library.
@@ -32,13 +33,15 @@ public class Texture
     {
     
         // in order to obtain width and height of image,
-        // pass two objects in as parameters (pass by reference);
+        // pass these objects in as parameters (pass by reference);
         // they will be used to store additional return data,
         // which we will copy into width/height
         IntBuffer widthBuf  = BufferUtils.createIntBuffer(1);
         IntBuffer heightBuf = BufferUtils.createIntBuffer(1);
         IntBuffer tempBuf   = BufferUtils.createIntBuffer(1);
         
+        // setting to flip texture along Y axis
+        stbi_set_flip_vertically_on_load(true);
         // 4 = 4 bytes = R,G,B,A
         pixelData = stbi_load( fileName, widthBuf, heightBuf, tempBuf, 4 );
         
@@ -66,8 +69,10 @@ public class Texture
                                      0, GL_RGBA, GL_UNSIGNED_BYTE, pixelData);
                                      
         // set other properties:
+        
         // improve efficiency
         glGenerateMipmap(GL_TEXTURE_2D);
+        
         // when zooming in and out on image - how to combine pixel data
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);

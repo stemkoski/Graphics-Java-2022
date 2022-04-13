@@ -9,7 +9,7 @@ import static org.lwjgl.opengl.GL40.*;
  */
 public class Uniform<T>
 {
-    // "int" | "float" | "vec2" | "vec3" | "vec4" | "mat4" | "bool"
+    // "int" | "float" | "vec2" | "vec3" | "vec4" | "mat4" | "bool" | "sampler2D"
     public String dataType;
     
     public T data;
@@ -56,6 +56,18 @@ public class Uniform<T>
             // System.out.println("Uploading data...");
             // System.out.println( Arrays.toString( M.flatten() ) );
             glUniformMatrix4fv( uniformRef, false, M.flatten() ); 
+        }
+        else if (dataType.equals("sampler2D"))
+        {
+            float[] values = (float[])(data);
+            int textureRef = (int)(values[0]);
+            int textureUnit = (int)(values[1]);
+            // activate texture unit
+            glActiveTexture( GL_TEXTURE0 + textureUnit );
+            // bind texture reference to texture unit
+            glBindTexture( GL_TEXTURE_2D, textureRef );
+            // upload texture unit number to uniform variable in shader
+            glUniform1i( uniformRef, textureUnit );
         }
     }
 }

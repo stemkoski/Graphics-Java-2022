@@ -46,6 +46,20 @@ public class BoxGeometry extends Geometry
                                     
         addAttribute("vec3", "vertexColor", colorData);
         
+        Vector uv0 = new Vector(1,1);
+        Vector uv1 = new Vector(0,1);
+        Vector uv2 = new Vector(0,0);
+        Vector uv3 = new Vector(1,0);
+        
+        float[] uvData = Vector.flattenArray(   uv1,uv0,uv2, uv0,uv3,uv2,
+                                                uv1,uv0,uv2, uv0,uv3,uv2,
+                                                uv1,uv0,uv2, uv0,uv3,uv2,
+                                                uv1,uv0,uv2, uv0,uv3,uv2,
+                                                uv1,uv0,uv2, uv0,uv3,uv2,
+                                                uv1,uv0,uv2, uv0,uv3,uv2   );
+        
+        addAttribute("vec2", "vertexUV", uvData);
+        
         vertexCount = 36;
     }
 }
