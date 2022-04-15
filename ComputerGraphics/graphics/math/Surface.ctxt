@@ -5,4 +5,6 @@ comment1.params=function
 comment1.target=Surface(Surface.Function)
 comment2.params=uStart\ uEnd\ uNumPoints\ vStart\ vEnd\ vNumPoints
 comment2.target=Vector[][]\ getVertexPositions(double,\ double,\ int,\ double,\ double,\ int)
-numComments=3
+comment3.params=uNumPoints\ vNumPoints
+comment3.target=Vector[][]\ getVertexUVs(int,\ int)
+numComments=4

@@ -12,11 +12,16 @@ public class SurfaceGeometry extends Geometry
         
         Vector[][] positions = surf.getVertexPositions(uStart, uEnd, uNumPoints,
                                                        vStart, vEnd, vNumPoints  );
-                                             
+        
+        Vector[][] uvs = surf.getVertexUVs(uNumPoints, vNumPoints);
+        
+        
+        
         vertexCount = 3 * 2 * (uNumPoints - 1) * (vNumPoints - 1);
         
         Vector[] trianglePoints = new Vector[vertexCount];
         Vector[] triangleColors = new Vector[vertexCount];
+        Vector[] triangleUVs    = new Vector[vertexCount];
         
         /*
         // colorful triangles!
@@ -47,23 +52,34 @@ public class SurfaceGeometry extends Geometry
                 Vector P2 = positions[uIndex+1][vIndex+1];
                 Vector P3 = positions[uIndex][vIndex+1];
                 
+                Vector uv0 = uvs[uIndex][vIndex];
+                Vector uv1 = uvs[uIndex+1][vIndex];
+                Vector uv2 = uvs[uIndex+1][vIndex+1];
+                Vector uv3 = uvs[uIndex][vIndex+1];
+                
                 trianglePoints[triangleIndex] = P0;
                 triangleColors[triangleIndex] = C0;
+                triangleUVs[triangleIndex]    = uv0;
                 triangleIndex++;
                 trianglePoints[triangleIndex] = P1;
                 triangleColors[triangleIndex] = C1;
+                triangleUVs[triangleIndex]    = uv1;
                 triangleIndex++;
                 trianglePoints[triangleIndex] = P2;
                 triangleColors[triangleIndex] = C2;
+                triangleUVs[triangleIndex]    = uv2;
                 triangleIndex++;
                 trianglePoints[triangleIndex] = P0;
                 triangleColors[triangleIndex] = C3;
+                triangleUVs[triangleIndex]    = uv0;
                 triangleIndex++;
                 trianglePoints[triangleIndex] = P2;
                 triangleColors[triangleIndex] = C4;
+                triangleUVs[triangleIndex]    = uv2;
                 triangleIndex++;
                 trianglePoints[triangleIndex] = P3;
                 triangleColors[triangleIndex] = C5;
+                triangleUVs[triangleIndex]    = uv3;
                 triangleIndex++;
             }
         }
@@ -74,5 +90,7 @@ public class SurfaceGeometry extends Geometry
         float[] vertexColorData = Vector.flattenArray(triangleColors);
         addAttribute("vec3", "vertexColor", vertexColorData);
         
+        float[] vertexUVData = Vector.flattenArray(triangleUVs);
+        addAttribute("vec2", "vertexUV", vertexUVData);
     }
 }

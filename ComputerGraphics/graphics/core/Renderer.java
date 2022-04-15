@@ -17,6 +17,9 @@ public class Renderer
         // enable depth testing for 3D objects;
         //  otherwise, objects drawn in order added to scene
         glEnable( GL_DEPTH_TEST );
+        
+        // enable antialiasing: smooths/blends pixels along edges of shapes.
+        glEnable( GL_MULTISAMPLE );
     }
     
     // where all the drawing happens

@@ -20,10 +20,19 @@ public class TestGraphics extends Base
         
         rig = new MovementRig(camera, input);
         
-        Geometry geo = new BoxGeometry(1, 1, 1);
-        Material mat = new TextureMaterial( new Texture("images/color-grid.png") );
+        Geometry geo = new SphereGeometry();
+        Material mat = new TextureMaterial( new Texture("images/sky.jpg") );
         Mesh mesh = new Mesh(geo, mat);
+        mesh.scale(100);
         sceneRoot.add( mesh );
+        
+        Geometry groundGeo = new PlaneGeometry();
+        Material groundMat = new TextureMaterial( new Texture("images/dirt.jpg") );
+        Mesh ground = new Mesh(groundGeo, groundMat);
+        ground.scale( 100 );
+        ground.translateGlobal( -50, 0, -50 );
+        ground.rotateXLocal( Math.PI/2 );
+        sceneRoot.add( ground );
         
     }
     

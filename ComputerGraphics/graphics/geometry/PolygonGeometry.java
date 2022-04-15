@@ -61,6 +61,35 @@ public class PolygonGeometry extends Geometry
         float[] vertexColorData = Vector.flattenArray( triangleColors );
         addAttribute("vec3", "vertexColor", vertexColorData);
         
+        Vector[] triangleUVs = new Vector[numberOfSides * 3];
+        triangleArrayIndex = 0;
+        Vector uvOrigin = new Vector(0.5, 0.5);
+        
+        for (int i = 0; i < numberOfSides; i++)
+        {
+            Vector uv1 = new Vector(P[i].values[0], P[i].values[1]);
+            uv1.multiplyScalar(0.5);
+            uv1.addVector( uvOrigin );
+            
+            Vector uv2 = new Vector(P[(i+1)%numberOfSides].values[0], 
+                                    P[(i+1)%numberOfSides].values[1]);
+            uv2.multiplyScalar(0.5);
+            uv2.addVector( uvOrigin );
+            
+            triangleUVs[triangleArrayIndex] = uv1;
+            triangleArrayIndex++;
+            
+            triangleUVs[triangleArrayIndex] = uv2;
+            triangleArrayIndex++;
+            
+            triangleUVs[triangleArrayIndex] = uvOrigin;
+            triangleArrayIndex++;
+        }
+        
+        float[] vertexUVData = Vector.flattenArray(triangleUVs);
+        addAttribute("vec2", "vertexUV", vertexUVData);
+        
+        
         vertexCount = numberOfSides * 3;
     }
 }

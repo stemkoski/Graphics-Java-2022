@@ -38,5 +38,21 @@ public class Surface
         }
         return positions;
     }
+    
+    public Vector[][] getVertexUVs(int uNumPoints, int vNumPoints)
+    {
+        Vector[][] uvs = new Vector[uNumPoints][vNumPoints];
+        for (int uIndex = 0; uIndex < uNumPoints; uIndex++)
+        {
+            for (int vIndex = 0; vIndex < vNumPoints; vIndex++)
+            {
+                double u = 1 - uIndex / (uNumPoints - 1.0);
+                double v = 1 - vIndex / (vNumPoints - 1.0);
+                Vector vec = new Vector(u, v);
+                uvs[uIndex][vIndex] = vec;
+            }
+        }
+        return uvs;
+    }
 
 }
