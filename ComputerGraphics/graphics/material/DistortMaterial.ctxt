@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=DistortMaterial
+comment1.params=texture\ noiseTexture
+comment1.target=DistortMaterial(graphics.core.Texture,\ graphics.core.Texture)
+numComments=2

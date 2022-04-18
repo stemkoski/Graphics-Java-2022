@@ -4,13 +4,13 @@ import graphics.core.*;
 
 import static org.lwjgl.opengl.GL40.*;
 
-public class TextureMaterial extends Material
+public class DistortMaterial extends Material
 {
-    public TextureMaterial(Texture texture)
+    public DistortMaterial(Texture texture, Texture noiseTexture)
     {
         // call constructor of the Material class;
         //  specify the shader programs to use.
-        super("shaders/TextureMaterial.vert", "shaders/TextureMaterial.frag");
+        super("shaders/DistortMaterial.vert", "shaders/DistortMaterial.frag");
         
         float[] defaultColor = {1, 1, 1};
         addUniform("vec3", "color", defaultColor);
@@ -22,6 +22,11 @@ public class TextureMaterial extends Material
         float[] textureData = { texture.textureRef, 1 };
         // sampler2D stores information about texture and pixel sampling
         addUniform("sampler2D", "tex", textureData );
+        
+        float[] noiseTextureData = { noiseTexture.textureRef, 2 };
+        addUniform("sampler2D", "noise", noiseTextureData );
+        
+        addUniform("float", "time", 0f );
         
         // repeat image texture
         float[] defaultRepeat = { 1, 1 };

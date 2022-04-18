@@ -34,10 +34,10 @@ public class Uniform<T>
         else if (dataType.equals("bool"))
             glUniform1i(uniformRef, (Integer)data);
         else if (dataType.equals("float"))
-            glUniform1f(uniformRef, (Float)data);
+            glUniform1f(uniformRef, (float)data);
         else if (dataType.equals("vec2"))
         {
-            Float[] floatArray = (Float[])data;
+            float[] floatArray = (float[])data;
             glUniform2f(uniformRef, floatArray[0], floatArray[1]);
         }
         else if (dataType.equals("vec3"))
@@ -47,7 +47,7 @@ public class Uniform<T>
         }
         else if (dataType.equals("vec4"))
         {
-            Float[] floatArray = (Float[])data;
+            float[] floatArray = (float[])data;
             glUniform4f(uniformRef, floatArray[0], floatArray[1], floatArray[2], floatArray[3]);
         }
         else if (dataType.equals("mat4"))
