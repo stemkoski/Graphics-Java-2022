@@ -26,8 +26,12 @@ public class DistortMaterial extends Material
         float[] noiseTextureData = { noiseTexture.textureRef, 2 };
         addUniform("sampler2D", "noise", noiseTextureData );
         
-        addUniform("float", "time", 0f );
+        addUniform("float", "time", 0.0f ); 
         
+        addUniform("float", "noiseLevel", 1.0f);
+        
+        addUniform("float", "noiseSpeed", 1.0f);
+         
         // repeat image texture
         float[] defaultRepeat = { 1, 1 };
         addUniform("vec2", "repeatUV", defaultRepeat);

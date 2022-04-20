@@ -18,6 +18,10 @@ in vec2 UV;
 uniform sampler2D noise;
 // also need time data to generate animated effects
 uniform float time;
+// control amount of distortion with extra factor [0 --- ???]
+uniform float noiseLevel;
+// control speed of distortion with extra factor
+uniform float noiseSpeed;
 
 // final color sent to GPU
 out vec4 fragColor;
@@ -33,8 +37,18 @@ void main()
       fragColor *= vec4(fragmentColor, 1);
 
    // alter UV coordinates based on noise texture
-   vec4 noiseData = texture( noise, UV ) - vec4(0.5,0.5,0.5,0.5);
-   vec2 noiseUV = UV + sin(time) * vec2(noiseData.r, noiseData.g);
+   vec4 n = texture( noise, UV ) - vec4(0.5, 0.5, 0.5, 0.5);
+
+   // add animated change
+  
+   float t = time * noiseSpeed;
+
+   vec4 noiseData = vec4( n.r * sin(t) + n.g * cos(t), 
+                          n.g * sin(t) + n.b * cos(t), 
+                          n.b * sin(t) + n.r * cos(t), 
+                          n.a );
+
+   vec2 noiseUV = UV + noiseLevel * vec2(noiseData.r, noiseData.g);
 
    // combine with color of sampled pixel at this location
    fragColor *= texture( tex, noiseUV ); 

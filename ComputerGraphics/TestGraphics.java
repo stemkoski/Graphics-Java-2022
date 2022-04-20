@@ -24,7 +24,7 @@ public class TestGraphics extends Base
         
         Geometry geo = new SphereGeometry();
         Material mat = new TextureMaterial( new Texture("images/sky.jpg") );
-        mat.uniforms.get("color").data = new float[] {0.5f, 0.5f, 0.5f};
+        mat.uniforms.get("color").data = new float[] {1, 1, 1};
         Mesh sky = new Mesh(geo, mat);
         sky.scale(100);
         sceneRoot.add( sky );
@@ -48,8 +48,11 @@ public class TestGraphics extends Base
         */
        
         Geometry rectGeo = new RectangleGeometry(1,1);
-        rectMat = new DistortMaterial( new Texture("images/color-grid.png"),
-                                              new Texture("images/noise.jpg") );
+        rectMat = new DistortMaterial( new Texture("images/lava.jpg"),
+                                       new Texture("images/noise.jpg") );
+        // change distortion level
+        rectMat.uniforms.get("noiseLevel").data = 0.05f;
+        rectMat.uniforms.get("noiseSpeed").data = 0.5f;
         Mesh rect = new Mesh(rectGeo, rectMat);
         rect.translateGlobal(0, 1, 0);
         sceneRoot.add( rect );
@@ -57,10 +60,10 @@ public class TestGraphics extends Base
         
     }
     
-    public void update()
-    {
+    public void update() 
+    { 
         renderer.render(sceneRoot, camera);
-        
+         
         rectMat.uniforms.get("time").data = (float)( clock.getElapsedTime() );
         
         rig.update(1.0 / 60.0);
