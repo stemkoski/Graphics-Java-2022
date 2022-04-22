@@ -8,7 +8,7 @@ import graphics.math.*;
 public class BoxGeometry extends Geometry
 {
     // set up attributes (position and vertex colors) and vertex count
-    public BoxGeometry(double width, double height, double depth)
+    public BoxGeometry(float width, float height, float depth)
     {
         Vector P0 = new Vector(-width/2,  height/2, -depth/2);
         Vector P1 = new Vector( width/2,  height/2, -depth/2);
@@ -30,12 +30,12 @@ public class BoxGeometry extends Geometry
         
         addAttribute("vec3", "position", positionData);
         
-        Vector C0 = new Vector(1, 0, 0);
-        Vector C1 = new Vector(1, 0.5, 0);
-        Vector C2 = new Vector(0.5, 1, 0.5);
-        Vector C3 = new Vector(0.75, 0.75, 1);
-        Vector C4 = new Vector(1, 0.75, 0.75);
-        Vector C5 = new Vector(0.8, 0.6, 1);
+        Vector C0 = new Vector(1.00f, 0.00f, 0.00f);
+        Vector C1 = new Vector(1.00f, 0.50f, 0.00f);
+        Vector C2 = new Vector(0.50f, 1.00f, 0.50f);
+        Vector C3 = new Vector(0.75f, 0.75f, 1.00f);
+        Vector C4 = new Vector(1.00f, 0.75f, 0.75f);
+        Vector C5 = new Vector(0.80f, 0.60f, 1.00f);
         
         float[] colorData = Vector.flattenArray( C0,C0,C0,C0,C0,C0,
                                                  C1,C1,C1,C1,C1,C1,

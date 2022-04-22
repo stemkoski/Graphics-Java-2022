@@ -17,7 +17,7 @@ public class TestGraphics extends Base
     {
         sceneRoot = new Object3D();
         camera = new Camera();
-        camera.setPosition( new Vector(0, 1, 3) );
+        camera.setPosition( new Vector(0f, 1f, 3f) );
         renderer = new Renderer();
         
         rig = new MovementRig(camera, input);
@@ -35,7 +35,7 @@ public class TestGraphics extends Base
         Mesh ground = new Mesh(groundGeo, groundMat);
         ground.scale( 100 );
         ground.translateGlobal( -50, 0, -50 );
-        ground.rotateXLocal( Math.PI/2 );
+        ground.rotateXLocal( (float)Math.PI/2 );
         sceneRoot.add( ground );
         
         /*
@@ -51,8 +51,8 @@ public class TestGraphics extends Base
         rectMat = new DistortMaterial( new Texture("images/lava.jpg"),
                                        new Texture("images/noise.jpg") );
         // change distortion level
-        rectMat.uniforms.get("noiseLevel").data = 0.05f;
-        rectMat.uniforms.get("noiseSpeed").data = 0.5f;
+        rectMat.uniforms.get("noiseLevel").data = 0.10f;
+        rectMat.uniforms.get("noiseSpeed").data = 0.80f;
         Mesh rect = new Mesh(rectGeo, rectMat);
         rect.translateGlobal(0, 1, 0);
         sceneRoot.add( rect );
@@ -66,7 +66,7 @@ public class TestGraphics extends Base
          
         rectMat.uniforms.get("time").data = (float)( clock.getElapsedTime() );
         
-        rig.update(1.0 / 60.0);
+        rig.update(1.0f / 60.0f);
     }
     
     public static void main(String[] args)

@@ -5,8 +5,8 @@ import graphics.math.*;
 public class SurfaceGeometry extends Geometry
 {
     public SurfaceGeometry( Surface.Function F, 
-        double uStart, double uEnd, int uNumPoints,
-        double vStart, double vEnd, int vNumPoints  )
+        float uStart, float uEnd, int uNumPoints,
+        float vStart, float vEnd, int vNumPoints  )
     {
         Surface surf = new Surface(F);
         
@@ -34,12 +34,12 @@ public class SurfaceGeometry extends Geometry
         */
        
         // gray scale triangles
-        Vector C0 = new Vector( 0.5, 0.5, 0.5 );
-        Vector C1 = new Vector( 0.6, 0.6, 0.6 );
-        Vector C2 = new Vector( 0.7, 0.7, 0.7 );
-        Vector C3 = new Vector( 0.8, 0.8, 0.8 );
-        Vector C4 = new Vector( 0.9, 0.9, 0.9 );
-        Vector C5 = new Vector( 1.0, 1.0, 1.0 );
+        Vector C0 = new Vector( 0.5f, 0.5f, 0.5f );
+        Vector C1 = new Vector( 0.6f, 0.6f, 0.6f );
+        Vector C2 = new Vector( 0.7f, 0.7f, 0.7f );
+        Vector C3 = new Vector( 0.8f, 0.8f, 0.8f );
+        Vector C4 = new Vector( 0.9f, 0.9f, 0.9f );
+        Vector C5 = new Vector( 1.0f, 1.0f, 1.0f );
         
         int triangleIndex = 0;
         

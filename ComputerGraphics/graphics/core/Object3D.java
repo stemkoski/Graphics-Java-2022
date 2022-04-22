@@ -96,63 +96,52 @@ public class Object3D
         transform.values[2][3] = position.values[2];
     }
     
-    public void translateLocal(double deltaX, double deltaY, double deltaZ)
+    public void translateLocal(float deltaX, float deltaY, float deltaZ)
     {
         Matrix T = Matrix.makeTranslation(deltaX, deltaY, deltaZ);
         transform = Matrix.multiplyMatrices(transform, T);
     }
 
-    public void translateGlobal(double deltaX, double deltaY, double deltaZ)
+    public void translateGlobal(float deltaX, float deltaY, float deltaZ)
     {
         Matrix T = Matrix.makeTranslation(deltaX, deltaY, deltaZ);
         transform = Matrix.multiplyMatrices(T, transform);
     }
 
-    public void rotateXLocal(double deltaA)
+    public void rotateXLocal(float deltaA)
     {
         Matrix T = Matrix.makeRotationX(deltaA);
         transform = Matrix.multiplyMatrices(transform, T);
     }
 
-    public void rotateXGlobal(double deltaA)
+    public void rotateXGlobal(float deltaA)
     {
         Matrix T = Matrix.makeRotationX(deltaA);
         transform = Matrix.multiplyMatrices(T, transform);
     }
 
-    public void rotateYLocal(double deltaA)
+    public void rotateYLocal(float deltaA)
     {
         Matrix T = Matrix.makeRotationY(deltaA);
         transform = Matrix.multiplyMatrices(transform, T);
     }
 
-    public void rotateYGlobal(double deltaA)
+    public void rotateYGlobal(float deltaA)
     {
         Matrix T = Matrix.makeRotationY(deltaA);
         transform = Matrix.multiplyMatrices(T, transform);
     }
     
-    public void scale(double s)
+    public void scale(float s)
     {
         Matrix T = Matrix.makeScale(s);
         transform = Matrix.multiplyMatrices(T, transform);        
     }
-    /*
-    
-    TODO: (local/global versions)
-    
-    translate(x,y,z)
-
-    "roll"
-    rotateZ(angle)
-
-    "look"
-    rotateX(angle)
-
-    "turn"
-    rotateY(angle)
-
-    "scale"
-    scale(s)
-     */
+ 
+    public void scale(float sx, float sy, float sz)
+    { 
+        Matrix T = Matrix.makeScale(sx, sy, sz);
+        transform = Matrix.multiplyMatrices(T, transform);        
+    }
+ 
 }

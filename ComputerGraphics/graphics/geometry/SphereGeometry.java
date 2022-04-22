@@ -12,11 +12,11 @@ public class SphereGeometry extends SurfaceGeometry
         super(
             (u, v) -> 
             {
-                return new Vector(Math.cos(u) * Math.sin(v),
-                                  Math.cos(v),
-                                  Math.sin(u) * Math.sin(v));
+                return new Vector((float)Math.cos(u) * (float)Math.sin(v),
+                                  (float)Math.cos(v),
+                                  (float)Math.sin(u) * (float)Math.sin(v));
             },
-            0, 2 * Math.PI, 64,
-            0, Math.PI, 32  );
+            0, 2 * (float)Math.PI, 64,
+            0, (float)Math.PI, 32  );
     }
 }

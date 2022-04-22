@@ -1,8 +1,8 @@
 #BlueJ package file
-dependency1.from=Matrix
+dependency1.from=Surface
 dependency1.to=Vector
 dependency1.type=UsesDependency
-dependency2.from=Surface
+dependency2.from=Matrix
 dependency2.to=Vector
 dependency2.type=UsesDependency
 objectbench.height=93

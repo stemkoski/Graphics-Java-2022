@@ -12,11 +12,11 @@ public class PrismGeometry extends SurfaceGeometry
        super(
            (u, v) ->
            {
-               return new Vector( Math.cos(u),
+               return new Vector( (float)Math.cos(u),
                                   v,
-                                  Math.sin(u) );
+                                  (float)Math.sin(u) );
            },
-           0, 2 * Math.PI, numberOfSides + 1,
+           0, 2 * (float)Math.PI, numberOfSides + 1,
            -1, 1, 4 );
            
    }

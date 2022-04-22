@@ -10,7 +10,7 @@ public class Surface
     public interface Function
     {
         // function F(u,v) = (x,y,z)
-        public Vector F(double u, double v);
+        public Vector F(float u, float v);
     }
 
     // constructor stores function,
@@ -21,8 +21,8 @@ public class Surface
         this.function = function;
     }
 
-    public Vector[][] getVertexPositions(double uStart, double uEnd, int uNumPoints,
-                                         double vStart, double vEnd, int vNumPoints)
+    public Vector[][] getVertexPositions(float uStart, float uEnd, int uNumPoints,
+                                         float vStart, float vEnd, int vNumPoints)
     {
         // store the positions
         Vector[][] positions = new Vector[uNumPoints][vNumPoints];
@@ -30,8 +30,8 @@ public class Surface
         {
             for (int vIndex = 0; vIndex < vNumPoints; vIndex++)
             {
-                double u = uStart + ((uEnd - uStart)/(uNumPoints - 1)) * uIndex;
-                double v = vStart + ((vEnd - vStart)/(vNumPoints - 1)) * vIndex;
+                float u = uStart + ((uEnd - uStart)/(uNumPoints - 1)) * uIndex;
+                float v = vStart + ((vEnd - vStart)/(vNumPoints - 1)) * vIndex;
                 Vector vec = function.F(u,v);
                 positions[uIndex][vIndex] = vec;
             }
@@ -46,8 +46,8 @@ public class Surface
         {
             for (int vIndex = 0; vIndex < vNumPoints; vIndex++)
             {
-                double u = 1 - uIndex / (uNumPoints - 1.0);
-                double v = 1 - vIndex / (vNumPoints - 1.0);
+                float u = 1f - uIndex / (uNumPoints - 1f);
+                float v = 1f - vIndex / (vNumPoints - 1f);
                 Vector vec = new Vector(u, v);
                 uvs[uIndex][vIndex] = vec;
             }

@@ -24,7 +24,7 @@ public class TestFramework extends Base
         Material mat = new SurfaceMaterial();
         Mesh rectangle = new Mesh(geo, mat);
         rectangle.setPosition( new Vector(0, 0, -2) );  
-        rectangle.rotateXLocal( -Math.PI/2 );
+        rectangle.rotateXLocal( -(float)Math.PI/2 );
         sceneRoot.add( rectangle );
 
         /*
@@ -95,7 +95,7 @@ public class TestFramework extends Base
         Geometry geom = new SphereGeometry();
 
         Mesh mesh = new Mesh(geom, surfMat);
-        mesh.setPosition( new Vector(0, 1.5, 0) );
+        mesh.setPosition( new Vector(0, 1.5f, 0) );
 
         Mesh wireMesh = new Mesh(geom, lineMat);
         mesh.add( wireMesh );
@@ -116,7 +116,7 @@ public class TestFramework extends Base
 
         renderer.render( sceneRoot, camera );
 
-        rig.update(1.0 / 60.0);
+        rig.update(1.0f / 60.0f);
     }
 
     public static void main(String[] args)

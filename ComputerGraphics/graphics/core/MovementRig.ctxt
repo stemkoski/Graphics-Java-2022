@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=MovementRig
-comment0.text=\r\n\ Move\ an\ object\ around\ the\ screen\ with\ keyboard\ controls\r\n
-comment1.params=object\ input
-comment1.target=MovementRig(Object3D,\ Input)
-comment2.params=deltaTime
-comment2.target=void\ update(double)
-comment2.text=\r\n\ Move\ the\ attached\ object\ according\ to\ the\ keyboard\ input.\r\n\r\n\ @param\ deltaTime\ how\ much\ time\ has\ passed\ since\ last\ update\ (1/60\ second)\r\n
-numComments=3

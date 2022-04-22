@@ -10,8 +10,8 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public class MovementRig
 {
-    public double movementSpeed; // units per second
-    public double turnSpeed;     // degrees per second
+    public float movementSpeed; // units per second
+    public float turnSpeed;     // degrees per second
     public Object3D object;      // object being moved
     public Input input;          // listens for keyboard input
     
@@ -29,7 +29,7 @@ public class MovementRig
      *
      * @param deltaTime how much time has passed since last update (1/60 second)
      */
-    public void update(double deltaTime)
+    public void update(float deltaTime)
     {
         // W = forward
         if ( input.keyPressing(GLFW_KEY_W) )
@@ -69,12 +69,12 @@ public class MovementRig
         
         if ( input.keyPressing(GLFW_KEY_Q) ) // turn left
         {
-            Matrix T = Matrix.makeRotationY( turnSpeed * deltaTime * Math.PI / 180 );
+            Matrix T = Matrix.makeRotationY( turnSpeed * deltaTime * (float)Math.PI / 180 );
             object.transform = Matrix.multiplyMatrices( object.transform, T );
         }
         if ( input.keyPressing(GLFW_KEY_E) ) // turn right
         {
-            Matrix T = Matrix.makeRotationY( -turnSpeed * deltaTime * Math.PI / 180 );
+            Matrix T = Matrix.makeRotationY( -turnSpeed * deltaTime * (float)Math.PI / 180 );
             object.transform = Matrix.multiplyMatrices( object.transform, T );
         }
 

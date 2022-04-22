@@ -19,11 +19,11 @@ public class DistortMaterial extends Material
         addUniform("bool", "useVertexColor", 0);
     
         // data required: texture reference, and texture unit number (intermediary)
-        float[] textureData = { texture.textureRef, 1 };
+        int[] textureData = { texture.textureRef, 1 };
         // sampler2D stores information about texture and pixel sampling
         addUniform("sampler2D", "tex", textureData );
         
-        float[] noiseTextureData = { noiseTexture.textureRef, 2 };
+        int[] noiseTextureData = { noiseTexture.textureRef, 2 };
         addUniform("sampler2D", "noise", noiseTextureData );
         
         addUniform("float", "time", 0.0f ); 
@@ -33,7 +33,7 @@ public class DistortMaterial extends Material
         addUniform("float", "noiseSpeed", 1.0f);
          
         // repeat image texture
-        float[] defaultRepeat = { 1, 1 };
+        float[] defaultRepeat = { 1f, 1f };
         addUniform("vec2", "repeatUV", defaultRepeat);
         
         

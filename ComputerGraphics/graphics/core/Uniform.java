@@ -59,9 +59,9 @@ public class Uniform<T>
         }
         else if (dataType.equals("sampler2D"))
         {
-            float[] values = (float[])(data);
-            int textureRef = (int)(values[0]);
-            int textureUnit = (int)(values[1]);
+            int[] values = (int[])(data);
+            int textureRef  = values[0];
+            int textureUnit = values[1];
             // activate texture unit
             glActiveTexture( GL_TEXTURE0 + textureUnit );
             // bind texture reference to texture unit

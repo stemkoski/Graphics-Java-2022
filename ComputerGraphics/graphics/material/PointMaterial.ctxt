@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=PointMaterial
-comment0.text=\r\n\ Render\ a\ shape\ using\ points\ (instead\ of\ lines\ or\ triangles)\r\n
-comment1.params=
-comment1.target=PointMaterial()
-numComments=2

@@ -6,16 +6,16 @@ public class PolygonGeometry extends Geometry
 {
     public PolygonGeometry(int numberOfSides)
     {
-        double baseAngle = 2 * Math.PI / numberOfSides;
+        float baseAngle = 2 * (float)Math.PI / numberOfSides;
         
         // store position of each vertex around triangle
         Vector[] P = new Vector[numberOfSides];
         
         for (int i = 0; i < numberOfSides; i++)
         {
-            double x = Math.cos( i * baseAngle );
-            double y = Math.sin( i * baseAngle );
-            double z = 0;
+            float x = (float)Math.cos( i * baseAngle );
+            float y = (float)Math.sin( i * baseAngle );
+            float z = 0;
             P[i] = new Vector( x, y, z );
         }
         
@@ -41,7 +41,7 @@ public class PolygonGeometry extends Geometry
         addAttribute("vec3", "position", positionData);
         
         Vector[] triangleColors = new Vector[numberOfSides * 3];
-        Vector C0 = new Vector(0.5, 0, 1);
+        Vector C0 = new Vector(0.5f, 0, 1);
         Vector C1 = new Vector(0, 1, 1);
         Vector C2 = new Vector(1, 0, 0);
         
@@ -63,17 +63,17 @@ public class PolygonGeometry extends Geometry
         
         Vector[] triangleUVs = new Vector[numberOfSides * 3];
         triangleArrayIndex = 0;
-        Vector uvOrigin = new Vector(0.5, 0.5);
+        Vector uvOrigin = new Vector(0.5f, 0.5f);
         
         for (int i = 0; i < numberOfSides; i++)
         {
             Vector uv1 = new Vector(P[i].values[0], P[i].values[1]);
-            uv1.multiplyScalar(0.5);
+            uv1.multiplyScalar(0.5f);
             uv1.addVector( uvOrigin );
             
             Vector uv2 = new Vector(P[(i+1)%numberOfSides].values[0], 
                                     P[(i+1)%numberOfSides].values[1]);
-            uv2.multiplyScalar(0.5);
+            uv2.multiplyScalar(0.5f);
             uv2.addVector( uvOrigin );
             
             triangleUVs[triangleArrayIndex] = uv1;

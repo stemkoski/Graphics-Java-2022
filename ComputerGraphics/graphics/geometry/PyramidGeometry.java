@@ -12,11 +12,11 @@ public class PyramidGeometry extends SurfaceGeometry
         super(
            (u, v) ->
            {
-               return new Vector( Math.cos(u) * ( -0.5 * v + 0.5 ),
+               return new Vector( (float)Math.cos(u) * ( -0.5f * v + 0.5f ),
                                   v,
-                                  Math.sin(u) * ( -0.5 * v + 0.5 ) );
+                                  (float)Math.sin(u) * ( -0.5f * v + 0.5f ) );
            },
-           0, 2 * Math.PI, numberOfSides + 1,
+           0, 2 * (float)Math.PI, numberOfSides + 1,
            -1, 1, 4 );
     }
 }

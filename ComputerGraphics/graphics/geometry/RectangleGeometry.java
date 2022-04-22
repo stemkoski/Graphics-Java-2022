@@ -5,7 +5,7 @@ public class RectangleGeometry extends Geometry
 {
     // purpose: define all data arrays and create attributes.
     
-    public RectangleGeometry(double width, double height)
+    public RectangleGeometry(float width, float height)
     {
         Vector P0 = new Vector( width/2, height/2, 0);
         Vector P1 = new Vector(-width/2, height/2, 0);
@@ -16,10 +16,10 @@ public class RectangleGeometry extends Geometry
 
         addAttribute("vec3", "position", positionData);
     
-        Vector C0 = new Vector(1, 0, 0);
-        Vector C1 = new Vector(0, 1, 1); 
-        Vector C2 = new Vector(1, 0.5, 0);
-        Vector C3 = new Vector(0.75, 0.75, 1);
+        Vector C0 = new Vector(1.00f, 0.00f, 0.00f);
+        Vector C1 = new Vector(0.00f, 1.00f, 1.00f); 
+        Vector C2 = new Vector(1.00f, 0.50f, 0.00f);
+        Vector C3 = new Vector(0.75f, 0.75f, 1.00f);
         
         float[] colorData = Vector.flattenArray( C0,C1,C2, C0,C2,C3 );
         

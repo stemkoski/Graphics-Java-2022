@@ -7,7 +7,7 @@ package graphics.math;
  */
 public class Vector
 {
-    public double[] values;
+    public float[] values;
     
     /**
      * Use this constructor when you don't know the initial values,
@@ -15,27 +15,27 @@ public class Vector
      */
     public Vector(int size)
     {
-        values = new double[size];
+        values = new float[size];
     }
     
-    public Vector(double x, double y)
+    public Vector(float x, float y)
     {
-        values = new double[2];
+        values = new float[2];
         values[0] = x;
         values[1] = y;
     }
     
-    public Vector(double x, double y, double z)
+    public Vector(float x, float y, float z)
     {
-        values = new double[3];
+        values = new float[3];
         values[0] = x;
         values[1] = y;
         values[2] = z;
     }
     
-    public Vector(double x, double y, double z, double w)
+    public Vector(float x, float y, float z, float w)
     {
-        values = new double[4];
+        values = new float[4];
         values[0] = x;
         values[1] = y;
         values[2] = z;
@@ -128,7 +128,7 @@ public class Vector
      *  
      * @param c constant to multiply values by
      */
-    public void multiplyScalar(double c)
+    public void multiplyScalar(float c)
     {
         for (int i = 0; i < this.values.length; i++)
         {
@@ -143,7 +143,7 @@ public class Vector
      * @param c constant to multiply values by
      * @param v Vector being multiplied by a constant
      */
-    public static Vector multiplyScalarVector(double c, Vector v)
+    public static Vector multiplyScalarVector(float c, Vector v)
     {
         Vector w = new Vector(v.values.length);
         for (int i = 0; i < w.values.length; i++)
@@ -158,9 +158,9 @@ public class Vector
      * if V = (v1, v2) and W = (w1, w2), then V o W = v1 * w1 + v2 * w2;
      * Used in length calculations and matrix multiplcations.
      */
-    public static double dot(Vector v, Vector w)
+    public static float dot(Vector v, Vector w)
     {
-        double sum = 0;
+        float sum = 0;
         for (int i = 0; i < v.values.length; i++)
         {
             sum += v.values[i] * w.values[i];
@@ -175,9 +175,9 @@ public class Vector
      * 
      * @return the length of this vector
      */
-    public double getLength()
+    public float getLength()
     {
-        return Math.sqrt( Vector.dot( this, this ) );
+        return (float)Math.sqrt( Vector.dot( this, this ) );
     }
     
     /**

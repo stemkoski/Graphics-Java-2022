@@ -32,7 +32,7 @@ public class TestTransform extends Base
         Attribute positionAttribute = new Attribute("vec3", positionData);
         positionAttribute.associateVariable(programRef, "pos");
 
-        Matrix M = Matrix.makeTranslation(0.0, 0.0, 0.0);
+        Matrix M = Matrix.makeTranslation(0.0f, 0.0f, 0.0f);
         
         transformUniform = new Uniform<Matrix>(
             "mat4", M );
@@ -52,9 +52,9 @@ public class TestTransform extends Base
         glBindVertexArray(arrayRef);
         
         // transform the object by matrix multiplication
-        Matrix T = Matrix.makeTranslation(0.01, 0.0, 0.0);
-        Matrix R = Matrix.makeRotationZ(0.01);
-        Matrix S = Matrix.makeScale(0.999);
+        Matrix T = Matrix.makeTranslation(0.01f, 0.0f, 0.0f);
+        Matrix R = Matrix.makeRotationZ(0.01f);
+        Matrix S = Matrix.makeScale(0.999f);
         
         Matrix M = Matrix.multiplyMatrices(R, S);
         Matrix N = Matrix.multiplyMatrices(T, R);

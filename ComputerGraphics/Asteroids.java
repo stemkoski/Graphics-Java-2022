@@ -46,9 +46,9 @@ public class Asteroids extends Base
         transformUniform.associateVariable(
             programRef, "transform");
 
-        moveForward  = Matrix.makeTranslation(0, 0.01, 0);
-        turnLeft     = Matrix.makeRotationZ(0.01);
-        turnRight    = Matrix.makeRotationZ(-0.01);
+        moveForward  = Matrix.makeTranslation(0, 0.01f, 0);
+        turnLeft     = Matrix.makeRotationZ(0.01f);
+        turnRight    = Matrix.makeRotationZ(-0.01f);
             
     }
 

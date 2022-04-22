@@ -19,7 +19,7 @@ public class TextureMaterial extends Material
         addUniform("bool", "useVertexColor", 0);
     
         // data required: texture reference, and texture unit number (intermediary)
-        float[] textureData = { texture.textureRef, 1 };
+        int[] textureData = { texture.textureRef, 1 };
         // sampler2D stores information about texture and pixel sampling
         addUniform("sampler2D", "tex", textureData );
         
