@@ -10,6 +10,7 @@ public class TestGraphics extends Base
     public Renderer renderer;
     
     public Material rectMat;
+    public Material noiseMat;
     
     public MovementRig rig;
     
@@ -48,12 +49,15 @@ public class TestGraphics extends Base
         */
        
         Geometry rectGeo = new RectangleGeometry(1,1);
+        /*
         rectMat = new DistortMaterial( new Texture("images/lava.jpg"),
                                        new Texture("images/noise.jpg") );
         // change distortion level
         rectMat.uniforms.get("noiseLevel").data = 0.10f;
         rectMat.uniforms.get("noiseSpeed").data = 0.80f;
-        Mesh rect = new Mesh(rectGeo, rectMat);
+        */
+        noiseMat = new NoiseMaterial();
+        Mesh rect = new Mesh(rectGeo, noiseMat);
         rect.translateGlobal(0, 1, 0);
         sceneRoot.add( rect );
        
@@ -64,7 +68,9 @@ public class TestGraphics extends Base
     { 
         renderer.render(sceneRoot, camera);
          
-        rectMat.uniforms.get("time").data = (float)( clock.getElapsedTime() );
+        // rectMat.uniforms.get("time").data = (float)( clock.getElapsedTime() );
+        
+        noiseMat.uniforms.get("time").data = (float)( clock.getElapsedTime() );
         
         rig.update(1.0f / 60.0f);
     }
