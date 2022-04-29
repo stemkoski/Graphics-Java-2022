@@ -92,7 +92,8 @@ void main()
     // float r = fractalRandom(UV + vec2(time, 0) / 10.0, 5.0); // drifting clouds
     // vec3 rgb = mix( white, blue, r );
     // fragColor = vec4( rgb, 1 );
-
+    
+    /*
     // create lava texture
     vec3 red = vec3(0.5, 0, 0);
     vec3 yellow = vec3(1, 1, 0);
@@ -108,7 +109,37 @@ void main()
     float r = fractalRandom(noiseUV, 10.0);
     vec3 rgb = mix( red, yellow, r );
     fragColor = vec4( rgb, 1 );
+    */
 
+    /*
+    // create wood texture
+    vec3 tan   = vec3(0.5, 0.4, 0.3);
+    vec3 brown = vec3(0.3, 0.2, 0.1);
+    float t = fractalRandom(UV, 2.0);
+    // range of r = [-1, 1]
+    float r = sin(200.0 * (UV.y + t/8.0));
+    vec3 rgb = mix( tan, brown, r );
+    fragColor = vec4( rgb, 1 );
+    */
 
+    // create marble texture
+    vec3 green = vec3(0, 0.2, 0);
+    vec3 white = vec3(1, 1, 1);
+    float t = fractalRandom(UV, 2.0);
+    float r = sin(20.0 * (UV.y + 2.0 * t));
+    if (r > 0)
+        r = pow(r, 60);    
+    vec3 rgb = mix( white, green, r );
+
+    // secondary marble layer
+    vec3 green2 = vec3(0.2, 0.4, 0.2);
+    vec3 white2 = vec3(0.8, 0.8, 0.8);
+    float t2 = fractalRandom(UV, 16.0);
+    float r2 = sin(25.0 * (UV.y + 2.0 * t2));
+    if (r2 > 0)
+        r2 = pow(r2, 60);    
+    vec3 rgb2 = mix( white2, green2, r2 );
+
+    fragColor = vec4( mix(rgb, rgb2, 0.5), 1 );
 
 }
