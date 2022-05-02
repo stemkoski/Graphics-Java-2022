@@ -16,7 +16,7 @@ public class SphereGeometry extends SurfaceGeometry
                                   (float)Math.cos(v),
                                   (float)Math.sin(u) * (float)Math.sin(v));
             },
-            0, 2 * (float)Math.PI, 64,
-            0, (float)Math.PI, 32  );
+            0, 2 * (float)Math.PI, 256,
+            0, (float)Math.PI, 128  );
     }
 }

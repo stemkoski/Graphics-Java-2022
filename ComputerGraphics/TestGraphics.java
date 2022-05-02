@@ -48,15 +48,8 @@ public class TestGraphics extends Base
         sceneRoot.add( box );
         */
        
-        Geometry rectGeo = new RectangleGeometry(1,1);
-        /*
-        rectMat = new DistortMaterial( new Texture("images/lava.jpg"),
-                                       new Texture("images/noise.jpg") );
-        // change distortion level
-        rectMat.uniforms.get("noiseLevel").data = 0.10f;
-        rectMat.uniforms.get("noiseSpeed").data = 0.80f;
-        */
-        noiseMat = new NoiseMaterial();
+        Geometry rectGeo = new SphereGeometry();
+        noiseMat = new FireballMaterial();
         Mesh rect = new Mesh(rectGeo, noiseMat);
         rect.translateGlobal(0, 1, 0);
         sceneRoot.add( rect );
