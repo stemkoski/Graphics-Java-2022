@@ -17,6 +17,11 @@ public class Renderer
         // enable depth testing for 3D objects;
         //  otherwise, objects drawn in order added to scene
         glEnable( GL_DEPTH_TEST );
+
+        // enable alpha transparency
+        glEnable(GL_BLEND);  
+        // formula for blending colors: a * transparent color + (1 - a) * background color
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
         
         // enable antialiasing: smooths/blends pixels along edges of shapes.
         glEnable( GL_MULTISAMPLE );

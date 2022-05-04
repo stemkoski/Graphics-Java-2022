@@ -48,12 +48,22 @@ public class TestGraphics extends Base
         sceneRoot.add( box );
         */
        
-        Geometry rectGeo = new SphereGeometry();
+        /*
+        // Fireball material.
+        Geometry sphereGeo = new SphereGeometry();
         noiseMat = new FireballMaterial();
-        Mesh rect = new Mesh(rectGeo, noiseMat);
+        Mesh rect = new Mesh(sphereGeo, noiseMat);
         rect.translateGlobal(0, 1, 0);
         sceneRoot.add( rect );
+        */
        
+        Geometry planeGeo = new PlaneGeometry();
+        noiseMat = new WaterMaterial();
+        Mesh water = new Mesh(planeGeo, noiseMat);
+        water.scale(4);
+        water.rotateXLocal(-(float)Math.PI / 2);
+        water.translateGlobal(0, 2f, 0);
+        sceneRoot.add( water );
         
     }
     
